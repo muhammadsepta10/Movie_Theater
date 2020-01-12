@@ -47,7 +47,8 @@ export default class Header extends Component {
     })
       .then(res => {
         alert("registrasi sukses");
-        window.location.href = "http://localhost:3000";
+        // window.location.href = "http://localhost:3000";
+        window.location.reload(true);
       })
       .catch(res => {
         alert("email anda telah terdaftar, silahkan login!!");
@@ -71,7 +72,8 @@ export default class Header extends Component {
         localStorage.setItem("name", data.name);
         localStorage.setItem("token", token);
         alert("login sukses");
-        window.location.href = "http://localhost:3000/";
+        // window.location.href = "http://localhost:3000/";
+        window.location.reload(true);
       })
       .catch(res => {
         alert("login failed, your email or password is Wrong");
@@ -83,7 +85,8 @@ export default class Header extends Component {
   }
   handleClick = () => {
     localStorage.clear();
-    window.location.href = "http://localhost:3000/";
+    // window.location.href = "http://localhost:3000/";
+    window.location.reload(true);
   };
   hide() {
     if (!localStorage.getItem("token"))

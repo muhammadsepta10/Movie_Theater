@@ -6,7 +6,6 @@ import Footer from "./../components/Footer";
 import Collapse from "./../components/DetaileFilm/Collapse";
 import Axios from "axios";
 import Moment from "react-moment";
-import { Link } from "react-router-dom";
 export default class FilmDetaile extends Component {
   constructor() {
     super();
@@ -53,7 +52,6 @@ export default class FilmDetaile extends Component {
     const id_schedule = this.props.match.params.id2;
     const id_seat = id;
     const id_user = localStorage.getItem("id");
-    const id1 = this.props.match.params.id;
     Axios.post(`http://localhost:5000/api/payments/create`, {
       id_schedule,
       id_seat,
@@ -61,7 +59,8 @@ export default class FilmDetaile extends Component {
     })
       .then(() => {
         alert("success");
-        window.location.href = `https://movie-theater.netlify.com/movie_detaile/${id1}/${id_schedule}`;
+        // window.location.href = `https://movie-theater.netlify.com/movie_detaile/${id1}/${id_schedule}`;
+        window.location.reload(true);
       })
       .catch(err => console.log(err));
   };

@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Button } from "react-bootstrap";
 import Axios from "axios";
 import { MDBDataTable } from "mdbreact";
 
 import Header from "./../components/Header";
 import Footer from "./../components/Footer";
 import Form from "../components/Form/FormAddStudio";
-import FormSeat from "./../components/Form/FormAddSeat";
 import { Link } from "react-router-dom";
 
 export default class Studio extends Component {
@@ -42,7 +41,8 @@ export default class Studio extends Component {
     Axios.post("http://localhost:5000/api/studio/create", { name, id_cinema })
       .then(
         alert("success"),
-        (window.location.href = "https://movie-theater.netlify.com/studio")
+        // (window.location.href = "https://movie-theater.netlify.com/studio")
+        window.location.reload(true)
       )
       .catch(err => console.log(err));
   };
@@ -73,27 +73,22 @@ export default class Studio extends Component {
             sort: "asc"
           }
         ],
-        rows: this.state.studios.map(
-          item => (
-            console.log(item),
-            {
-              studio: item.name,
-              cinema: item.Cinema.name,
-              addres: item.Cinema.addres,
-              seat: (
-                <Button variant="dark">
-                  <Link
-                    className="text-white"
-                    style={{ textDecoration: "none" }}
-                    to={`/seat/${item.id}`}
-                  >
-                    Seat
-                  </Link>
-                </Button>
-              )
-            }
+        rows: this.state.studios.map(item => ({
+          studio: item.name,
+          cinema: item.Cinema.name,
+          addres: item.Cinema.addres,
+          seat: (
+            <Button variant="dark">
+              <Link
+                className="text-white"
+                style={{ textDecoration: "none" }}
+                to={`/seat/${item.id}`}
+              >
+                Seat
+              </Link>
+            </Button>
           )
-        )
+        }))
       };
       return (
         <div>

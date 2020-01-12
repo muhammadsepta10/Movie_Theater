@@ -37,7 +37,8 @@ export default class Seat extends Component {
     })
       .then(() => {
         alert("sukses");
-        window.location.href = `https://movie-theater.netlify.com/seat/${id_studio}`;
+        // window.location.href = `https://movie-theater.netlify.com/seat/${id_studio}`;
+        window.location.reload(true);
       })
       .catch(err => {
         console.log(err);

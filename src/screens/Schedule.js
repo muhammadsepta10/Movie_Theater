@@ -1,13 +1,11 @@
 import React, { Component } from "react";
 import { Container, Image, Button } from "react-bootstrap";
-import { GoGear } from "react-icons/go";
 
 import Header from "./../components/Header";
 import Footer from "./../components/Footer";
 import Form from "./../components/Form/FormAddSchedule";
 import Axios from "axios";
 import { MDBDataTable } from "mdbreact";
-import { Link } from "react-router-dom";
 
 export default class Schedule extends Component {
   constructor() {
@@ -59,7 +57,8 @@ export default class Schedule extends Component {
     })
       .then(() => {
         alert("success");
-        window.location.href = "https://movie-theater.netlify.com/schedule";
+        // window.location.href = "https://movie-theater.netlify.com/schedule";
+        window.location.reload(true);
       })
       .catch(err => {
         console.log(err);
@@ -94,36 +93,26 @@ export default class Schedule extends Component {
           sort: "asc"
         }
       ],
-      rows: this.state.schedules.map(
-        item => (
-          console.log(item),
-          {
-            image: item.Film.image ? (
-              <Image
-                fluid
-                src={item.Film.image}
-                rounded
-                style={{ width: 300 }}
-              />
-            ) : (
-              <Image
-                fluid
-                src="https://bitsofco.de/content/images/2018/12/broken-1.png"
-                rounded
-                style={{ width: 300 }}
-              />
-            ),
-            film: item.Film.name ? item.Film.name : "error",
-            genre: item.Film.Genre.name ? item.Film.Genre.name : "null",
-            synopsis: item.Film.synopsis ? item.Film.synopsis : "null",
-            action: (
-              <Button data-toggle="modal" data-target={`#addTime${item.id}`}>
-                Time
-              </Button>
-            )
-          }
+      rows: this.state.schedules.map(item => ({
+        image: item.Film.image ? (
+          <Image fluid src={item.Film.image} rounded style={{ width: 300 }} />
+        ) : (
+          <Image
+            fluid
+            src="https://bitsofco.de/content/images/2018/12/broken-1.png"
+            rounded
+            style={{ width: 300 }}
+          />
+        ),
+        film: item.Film.name ? item.Film.name : "error",
+        genre: item.Film.Genre.name ? item.Film.Genre.name : "null",
+        synopsis: item.Film.synopsis ? item.Film.synopsis : "null",
+        action: (
+          <Button data-toggle="modal" data-target={`#addTime${item.id}`}>
+            Time
+          </Button>
         )
-      )
+      }))
     };
     return (
       <div>

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, ButtonGroup, Button, Image } from "react-bootstrap";
+import { Container, Image } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Axios from "axios";
 import { MDBDataTable } from "mdbreact";
@@ -52,7 +52,8 @@ export default class AddMovie extends Component {
       .then(() => {
         alert("success");
 
-        window.location.href = "https://movie-theater.netlify.com/addMovie";
+        // window.location.href = "https://movie-theater.netlify.com/addMovie";
+        window.location.reload(true);
       })
       .catch(err => console.log(err));
   };

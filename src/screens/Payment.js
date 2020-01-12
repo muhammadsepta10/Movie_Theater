@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { Container, Tabs, Tab, Button } from "react-bootstrap";
+import { Container, Button } from "react-bootstrap";
 
 import Header from "./../components/Header";
-import Footer from "./../components/Footer";
+// import Footer from "./../components/Footer";
 import ListPayment from "./../components/Payment/List";
 import Axios from "axios";
 import { MDBDataTable } from "mdbreact";
