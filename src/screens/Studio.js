@@ -42,7 +42,7 @@ export default class Studio extends Component {
     Axios.post("http://localhost:5000/api/studio/create", { name, id_cinema })
       .then(
         alert("success"),
-        (window.location.href = "http://localhost:3000/studio")
+        (window.location.href = "https://movie-theater.netlify.com/studio")
       )
       .catch(err => console.log(err));
   };

@@ -42,7 +42,7 @@ export default class Cinema extends Component {
     })
       .then(
         alert("Success"),
-        (window.location.href = "http://localhost:3000/cinema")
+        (window.location.href = "https://movie-theater.netlify.com/cinema")
       )
       .catch(err => console.log(err));
   };

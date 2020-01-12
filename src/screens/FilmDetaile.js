@@ -61,7 +61,7 @@ export default class FilmDetaile extends Component {
     })
       .then(() => {
         alert("success");
-        window.location.href = `http://localhost:3000/movie_detaile/${id1}/${id_schedule}`;
+        window.location.href = `https://movie-theater.netlify.com/movie_detaile/${id1}/${id_schedule}`;
       })
       .catch(err => console.log(err));
   };

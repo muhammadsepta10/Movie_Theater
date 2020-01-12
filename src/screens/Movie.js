@@ -52,7 +52,7 @@ export default class AddMovie extends Component {
       .then(() => {
         alert("success");
 
-        window.location.href = "http://localhost:3000/addMovie";
+        window.location.href = "https://movie-theater.netlify.com/addMovie";
       })
       .catch(err => console.log(err));
   };
